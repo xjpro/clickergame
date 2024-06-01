@@ -14,7 +14,7 @@ export default function Home() {
     typeof window !== "undefined" ? window.innerHeight / 2 : 100,
   );
   const [rotation, setRotation] = useState(0);
-  const [speed, setSpeed] = useState(4000);
+  const [speed, setSpeed] = useState(2000);
   const [transition, setTransition] = useState(speed);
 
   function movePizza() {
