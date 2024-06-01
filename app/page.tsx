@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 let timeout: any;
 
@@ -15,6 +15,7 @@ export default function Home() {
   );
   const [rotation, setRotation] = useState(0);
   const [speed, setSpeed] = useState(4000);
+  const [transition, setTransition] = useState(speed);
 
   function movePizza() {
     if (timeout) {
@@ -29,18 +30,24 @@ export default function Home() {
       setRotation(Math.random() * 360);
     }
 
-    timeout = setTimeout(movePizza, speed);
+    timeout = setTimeout(automovePizza, speed);
+  }
+
+  function automovePizza() {
+    setTransition(speed);
+    movePizza();
   }
 
   function clicked(event: React.MouseEvent<HTMLDivElement>) {
     setScore((score) => score + 1);
     setSpeed((speed) => speed * 0.985);
+    setTransition(250);
     movePizza();
   }
 
   const style = {
     transform: `translate(${x}px, ${y}px) rotate(${rotation}deg)`,
-    transition: `transform ${speed}ms`,
+    transition: `transform ${transition}ms`,
   };
 
   return (
@@ -48,7 +55,7 @@ export default function Home() {
       <div className="heading">
         <h1>CLICK THE PIZZA</h1>
         <div className="score">Score: {score}</div>
-        <div>{speed}</div>
+        {/*<div>{speed}</div>*/}
       </div>
 
       <div
