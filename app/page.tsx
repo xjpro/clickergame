@@ -39,7 +39,11 @@ export default function Home() {
 
   return (
     <div className="level">
-      <div className="score">Score: {score}</div>
+      <div className="heading">
+        <h1>CLICK THE PIZZA</h1>
+        <div className="score">Score: {score}</div>
+      </div>
+
       <div
         ref={clickTargetRef}
         className="click-target"

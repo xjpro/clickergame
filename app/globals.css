@@ -13,6 +13,14 @@ body {
     overflow: hidden;
 }
 
+.heading {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
 .click-target {
     position: absolute;
     top: 0;
