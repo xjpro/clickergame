@@ -34,7 +34,7 @@ export default function Home() {
   }
 
   const style = {
-    transform: `translate(${x}px, ${y}px)`,
+    transform: `translate(${x}px, ${y}px) rotate(${Math.random() * 360}deg)`,
   };
 
   return (
